@@ -1,7 +1,5 @@
 import speech_recognition as sr
 
-print("Beginning")
-
 def recognize_speech_from_mic(recognizer, microphone):
     """Transcribe speech from recorded from `microphone`.
     """

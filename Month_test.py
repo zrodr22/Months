@@ -4,7 +4,11 @@ from docx.shared import Pt
 import subprocess
 import os
 import datetime
+import threading
 
+# Add a thread here that will run the speech recognition. Call a function in thread to close and save doc
+
+# Split this up in to different functions?
 def start_setup():
     x = datetime.datetime.now()
     month = x.strftime("%B")
