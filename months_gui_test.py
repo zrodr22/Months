@@ -10,7 +10,7 @@ class Application(tk.Frame):
 
     def create_widgets(self):
 
-        self.background_image = tk.PhotoImage(file='background_four.png')
+        self.background_image = tk.PhotoImage(file='../../background_four.png')
         #background_image = ImageTk.PhotoImage(Image.open('background.png'))
         backgound_label = tk.Label(self.master, image=self.background_image)
         backgound_label.place(relwidth=1, relheight=1)
@@ -36,5 +36,3 @@ class Application(tk.Frame):
         self.master.destroy()
 
 root = tk.Tk()
-app = Application(master=root)
-app.mainloop()

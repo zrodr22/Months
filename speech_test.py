@@ -33,21 +33,3 @@ def recognize_speech_from_mic(recognizer, microphone):
     return response
 
 
-if __name__ == "__main__":
-
-    # create recognizer and mic instances
-    recognizer = sr.Recognizer()
-    microphone = sr.Microphone()
-    listening = True
-
-    while listening:
-    
-        while True:
-            guess = recognize_speech_from_mic(recognizer, microphone)
-            if guess:
-                break
-
-        print(guess)
-        if guess == "thank you":
-            listening = False
-
