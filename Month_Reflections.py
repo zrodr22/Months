@@ -8,6 +8,7 @@ import threading
 import speech_recognition as sr
 import sys
 
+# Do I need this?
 sys.path.insert(1, "../..")
 import speech_test
 import months_gui_test
@@ -20,8 +21,8 @@ def start_setup():
 
     path = "C:\\Users\\zrodr\\Documents\\ThoughtJourneys\\Months\\%s_%s.docx" % (month,year)
  
-    speechChecker = threading.Thread(target=start_speech,args=(path,))
-    speechChecker.start()   
+    # speechChecker = threading.Thread(target=start_speech,args=(path,))
+    # speechChecker.start()   
     
     if os.path.isfile(path) == True:
         document = Document(path)
@@ -38,7 +39,7 @@ def start_setup():
         add_date(document, date)
     else:
         document = Document()
-        create_doc(document, path, month)
+        create_doc(document, date, month)
         
     document.save(path)
     os.startfile(path, 'open')
@@ -95,7 +96,7 @@ def start_speech(path):
     recognizer = sr.Recognizer()
     microphone = sr.Microphone()
     listening = True
-
+    
     while listening:
     
         while True:
