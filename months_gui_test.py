@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+from VerticalScrollFrame import VerticalScrolledFrame
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -10,17 +11,21 @@ class Application(tk.Frame):
 
     def create_widgets(self):
 
+        # Use this for deployment
         self.background_image = tk.PhotoImage(file='../../background_four.png')
+
+        # Use the next comment for development
         # self.background_image = tk.PhotoImage(file='background_four.png')
-        # background_image = ImageTk.PhotoImage(Image.open('background.png'))
-        backgound_label = tk.Label(self.master, image=self.background_image)
-        backgound_label.place(relwidth=1, relheight=1)
-        backgound_label.pack()
-        
+
+        # This used to be used for a background. Need to implement with scrolling
+        # backgound_label = tk.Label(self.master, image=self.background_image)
+        # backgound_label.place(relwidth=1, relheight=1)
+        # backgound_label.pack()
+        # frame = tk.Frame(root, bg='#000000', bd=5)
+        # frame.place(relx=0.5, rely=0.1, relwidth=.5, relheight=.75, anchor='n')
+
         # May have to use this frame stuff to put buttons on
-        #frame = tk.Frame(self.master)
-        frame = tk.Frame(root, bg='#000000', bd=5)
-        frame.place(relx=0.5, rely=0.1, relwidth=.5, relheight=.75, anchor='n')
+        frame = tk.Frame(self.master)
 
         entries = os.listdir("\\Users\\zrodr\\Documents\\ThoughtJourneys\\months")
         valid_entries = []
@@ -48,9 +53,16 @@ class Application(tk.Frame):
                             valid_entries[j] = valid_entries[i]
                             valid_entries[i] = switch
 
+        scframe = VerticalScrolledFrame(root)
+        scframe.pack()
+
         for entry in valid_entries:
             if entry[0] is not '~' and entry[-4:] == 'docx':
-                tk.Button(frame, text=entry, command= lambda e=entry: self.open_doc(e)).pack()
+                btn = tk.Button(scframe.interior, height=1, width=20, relief=tk.FLAT, 
+                    bg="gray99", fg="black",
+                    font="Dosis", text= entry,
+                    command=lambda e=entry: self.open_doc(e))
+                btn.pack(padx=10, pady=5, side=tk.TOP)
 
         self.quit = tk.Button(frame, text="QUIT", fg="red",
                               command=self.master.destroy)
