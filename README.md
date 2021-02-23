@@ -6,6 +6,8 @@
 - [ ] Fix tkinter scaling issue
 - [X] Add scroll bar for month document buttons
 - [X] Sort month document buttons
+- [ ] Add an exploration feature. When you close a document, keep the scroller open to look at others
+- [ ] Could I implement some kind of search through all of the documents? What about NLP?
 
 # Remember to update the path to the .exe and pics once the GUI code is finished
 pyinstaller file-creator.py
