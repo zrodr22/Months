@@ -7,6 +7,7 @@
 - [X] Add scroll bar for month document buttons
 - [X] Sort month document buttons
 - [ ] Add an exploration feature. When you close a document, keep the scroller open to look at others
+- [ ] Add a book mark feature. Create a color on a document indicating which month you were reading and make it open at the page you were reading at. How would I do this?
 - [ ] Could I implement some kind of search through all of the documents? What about NLP?
 - [ ] Maybe add time stamp along with the date?
 - [ ] Add a prompt asking if we want to make an entry?
