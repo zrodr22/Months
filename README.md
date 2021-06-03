@@ -12,6 +12,10 @@
 - [ ] Maybe add time stamp along with the date?
 - [ ] Add a prompt asking if we want to make an entry?
 
+# Beyond
+- [ ] Create my own writing app instead of using Microsoft Word
+- [ ] In the writing app, make a boxed theme surrounding text that indicates what is about to be written is important. This thought can be expanded
+
 # Remember to update the path to the .exe and pics once the GUI code is finished
 pyinstaller file-creator.py
 pyinstaller script.py --icon=c:\path-to\icon.ico
