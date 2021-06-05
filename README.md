@@ -19,3 +19,6 @@
 # Remember to update the path to the .exe and pics once the GUI code is finished
 pyinstaller file-creator.py
 pyinstaller script.py --icon=c:\path-to\icon.ico
+
+# Notes
+I think having an interface that caters to the note taking process is critical. At this moment I am using Microsoft Word, but whenever I go to it, I get out of my frame of mind because, well, it's Microsoft Word. I need something that makes me feel like what I am writing is meaningful and important. How can I do this?
