@@ -1,3 +1,8 @@
+# Installation
+- Install the requirements.txt
+- Run the command: pyinstaller months_setup.py --icon=tree.ico
+- Create a shortcut to the executable found in dist\months_setup.exe
+
 # Several improvements can be made:
 
 - [X] Turn off the bold and italic setting for the user (Do this by creating a new paragraph?)

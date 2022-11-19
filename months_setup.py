@@ -5,9 +5,13 @@ import subprocess
 import os
 import datetime
 import threading
-import speech_test
 import speech_recognition as sr
-import months_gui_test
+import sys
+
+# Do I need this?
+sys.path.insert(1, "../..")
+import speech_test
+import DocumentsMenu
 
 def start_setup():
     x = datetime.datetime.now()
@@ -15,10 +19,11 @@ def start_setup():
     year = x.strftime("%Y")
     date = x.strftime("%B %#d, %Y")
 
-    path = "C:\\Users\\zrodr\\Documents\\ThoughtJourneys\\Months\\%s_%s.docx" % (month,year)
+    documents_path = "\\Users\\zrodr\\OneDrive\\Months"
+    path = "C:" + documents_path +"\\%s_%s.docx" % (month,year)
  
-    speechChecker = threading.Thread(target=start_speech,args=(path,))
-    speechChecker.start()   
+    # speechChecker = threading.Thread(target=start_speech,args=(path,))
+    # speechChecker.start()   
     
     if os.path.isfile(path) == True:
         document = Document(path)
@@ -27,15 +32,15 @@ def start_setup():
         for para in all_paras:
             # If find a date matching today, then pull up user interface for selecting which month to open
             if date in para.text:
-                root = months_gui_test.root
-                app = months_gui_test.Application(master=root)
+                root = DocumentsMenu.root
+                app = DocumentsMenu.Application(documents_path,master=root)
                 app.mainloop()
                 return
         # If do not find a date matching today, then add today's date for new entry                
         add_date(document, date)
     else:
         document = Document()
-        create_doc(document, path, month)
+        create_doc(document, date, month)
         
     document.save(path)
     os.startfile(path, 'open')
@@ -92,7 +97,7 @@ def start_speech(path):
     recognizer = sr.Recognizer()
     microphone = sr.Microphone()
     listening = True
-
+    
     while listening:
     
         while True:

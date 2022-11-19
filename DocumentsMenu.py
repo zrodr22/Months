@@ -3,8 +3,9 @@ import os
 from VerticalScrollFrame import VerticalScrolledFrame
 
 class Application(tk.Frame):
-    def __init__(self, master=None):
+    def __init__(self, documents_path, master=None):
         super().__init__(master)
+        self.documents_path = documents_path
         self.master = master
         self.pack()
         self.create_widgets()
@@ -12,7 +13,7 @@ class Application(tk.Frame):
     def create_widgets(self):
 
         # Use this for deployment
-        self.background_image = tk.PhotoImage(file='../../background_four.png')
+        # self.background_image = tk.PhotoImage(file='../../background_four.png')
 
         # Use the next comment for development
         # self.background_image = tk.PhotoImage(file='background_four.png')
@@ -27,7 +28,7 @@ class Application(tk.Frame):
         # May have to use this frame stuff to put buttons on
         frame = tk.Frame(self.master)
 
-        entries = os.listdir("\\Users\\zrodr\\Documents\\ThoughtJourneys\\months")
+        entries = os.listdir(self.documents_path)
         valid_entries = []
 
         for entry in entries:
@@ -69,7 +70,7 @@ class Application(tk.Frame):
         self.quit.pack(side="bottom")
 
     def open_doc(self,doc_name):
-        path = "\\Users\\zrodr\\Documents\\ThoughtJourneys\\months\\" + doc_name
+        path = self.documents_path + "\\" + doc_name
         os.startfile(path)
         self.master.destroy()
 
