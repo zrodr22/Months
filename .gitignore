@@ -5,3 +5,5 @@ __pycache__
 bin
 lib
 pyvenv.cfg
+venv_months
+wvenv_months
