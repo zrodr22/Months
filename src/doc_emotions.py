@@ -55,6 +55,12 @@ total_emotions = {'Happy': 0, 'Angry': 0, 'Surprise': 0, 'Sad': 0, 'Fear': 0}
 documents_path = "\\Users\\zrodr\\OneDrive\\Months"
 documents = get_current_docs(documents_path)
 
+fear = []
+happy = []
+sad = []
+surprise = []
+angry = []
+
 for doc in documents:
     month = doc.split('_')[0]
     year = doc.split('_')[1][0:4]
