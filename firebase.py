@@ -1,7 +1,7 @@
 import firebase_admin
 
 cred_obj = firebase_admin.credentials.Certificate('fb_pk.json')
-databaseURL = "https://months-dbe00-default-rtdb.firebaseio.com/"
+databaseURL = ""
 
 default_app = firebase_admin.initialize_app(cred_obj, {
 	'databaseURL':databaseURL
