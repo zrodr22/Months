@@ -89,4 +89,5 @@ for doc in documents:
     plt.savefig(f'.\\plots\\{month}_{year}')
     print(f'{month}_{year}', 'completed!')
 
+print('Hello world')
 # plt.show()
